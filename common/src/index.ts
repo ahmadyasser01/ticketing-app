@@ -1,1 +1,1 @@
-console.log("Hello common")
+// Re-export all files from errors and middlewares
