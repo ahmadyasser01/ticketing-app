@@ -1,1 +1,1 @@
-console.log("sxxds")
+import mongoose from "mongoose"
