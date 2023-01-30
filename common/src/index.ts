@@ -1,4 +1,4 @@
-// Re-export all files from errors and middlewares
+// Re-export all files from errors and middleware
 export * from './errors/bad-request-error';
 export * from './errors/custom-error';
 export * from './errors/database-connection-error';
