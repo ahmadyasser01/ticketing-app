@@ -17,7 +17,6 @@ router.post(
   async (req: Request, res: Response, next: NextFunction) => {
     // pull email and password from req body
     const { email, password } = req.body;
-
     // check email exisitance
     const exisitingUser = await User.findOne({ email });
 
@@ -45,4 +44,4 @@ router.post(
   }
 );
 
-export { router as signInRouter };
+export { router as signinRouter };
