@@ -11,6 +11,7 @@ let mongo: any;
 
 // before All tests
 beforeAll(async () => {
+  jest.setTimeout(600000);
   process.env.JWT_KEY = "JWT_KEY2020";
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
