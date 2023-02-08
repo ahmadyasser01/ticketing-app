@@ -8,3 +8,5 @@ router.post("/api/users/signout", (req: Request, res: Response) => {
 
   res.status(200).json({});
 });
+
+export { router as signoutRouter };
