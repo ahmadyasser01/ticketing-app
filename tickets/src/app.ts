@@ -7,6 +7,11 @@ import {
   currentUser,
 } from "@ahmadyasser01/common";
 
+import { createTicketRouter } from "./routes/new";
+import { indexTicketRouter } from "./routes";
+import { ShowTicketRouter } from "./routes/show";
+import { updateTicketRouter } from "./routes/update";
+
 const app = express();
 
 app.set("trust proxy", true);
@@ -19,11 +24,11 @@ app.use(
 );
 
 app.use(currentUser);
-// Auth routes
-// app.use(currentUserRouter);
-// app.use(signinRouter);
-// app.use(signoutRouter);
-// app.use(signupRouter);
+// Ticket routes
+app.use(createTicketRouter);
+app.use(ShowTicketRouter);
+app.use(indexTicketRouter);
+app.use(updateTicketRouter);
 
 //fallback routing
 app.all("*", async (req: Request, res: Response) => {
