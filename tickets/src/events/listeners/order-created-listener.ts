@@ -1,10 +1,4 @@
-import {
-  Listener,
-  Subjects,
-  OrderCreatedEvent,
-  OrderStatus,
-  NotFoundError,
-} from "@ahmadyasser01/common";
+import { Listener, Subjects, OrderCreatedEvent } from "@ahmadyasser01/common";
 import { Message } from "node-nats-streaming";
 import { Ticket } from "../../models/ticket";
 import { TicketUpdatedPublisher } from "../publishers/ticket-updated-publisher";
