@@ -8,10 +8,11 @@ import {
 import { Message } from "node-nats-streaming";
 import { Ticket } from "../../models/ticket";
 import { TicketUpdatedPublisher } from "../publishers/ticket-updated-publisher";
+import { queueGroupName } from "./queue-group-name";
 
 export class OrderCreatedListener extends Listener<OrderCreatedEvent> {
   subject: Subjects.OrderCreated = Subjects.OrderCreated;
-  queueGroupName: string = "";
+  queueGroupName: string = queueGroupName;
 
   async onMessage(data: OrderCreatedEvent["data"], msg: Message) {
     // when order is created we want to
