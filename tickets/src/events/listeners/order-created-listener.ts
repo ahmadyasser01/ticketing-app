@@ -25,7 +25,14 @@ export class OrderCreatedListener extends Listener<OrderCreatedEvent> {
     // save the ticket
     await ticket.save();
     // TODO: Publish ticket updated event
-    // await new TicketUpdatedPublisher(this.client).publish()
+    await new TicketUpdatedPublisher(this.client).publish({
+      id: ticket.id,
+      price: ticket.price,
+      title: ticket.title,
+      userId: ticket.userId,
+      orderId: ticket.orderId,
+      version: ticket.version,
+    });
     // ack the msg
     msg.ack();
   }
