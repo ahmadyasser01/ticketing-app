@@ -15,7 +15,7 @@
     ]
   },
   "dependencies": {
-    "@ahmadyasser01/common": "^1.0.2",
+    "@ahmadyasser01/common": "^1.0.3",
     "@types/cookie-session": "^2.0.44",
     "@types/express": "^4.17.15",
     "@types/jsonwebtoken": "^9.0.0",
