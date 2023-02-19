@@ -4,8 +4,6 @@ import { OrderCancelledListener } from "./events/listeners/order-cancelled-liste
 import { OrderCreatedListener } from "./events/listeners/order-created-listener";
 import { natsWrapper } from "./nats-wrapper";
 
-//TODO: ADD LISTENER TO INDEX.TS
-
 const start = async () => {
   // check for environment variables
   if (!process.env.JWT_KEY) {
