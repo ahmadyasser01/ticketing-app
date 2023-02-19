@@ -19,7 +19,6 @@ export class OrderCreatedListener extends Listener<OrderCreatedEvent> {
     ticket.set({ orderId: data.id });
     // save the ticket
     await ticket.save();
-    // TODO: Publish ticket updated event
     await new TicketUpdatedPublisher(this.client).publish({
       id: ticket.id,
       price: ticket.price,
