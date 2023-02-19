@@ -8,6 +8,8 @@ import {
   NotAuthorizedError,
   BadRequestError,
 } from "@ahmadyasser01/common";
+import { TicketUpdatedPublisher } from "../events/publishers/ticket-updated-publisher";
+import { natsWrapper } from "../nats-wrapper";
 
 const router = Router();
 
@@ -38,7 +40,13 @@ router.put(
 
     await ticket.save();
 
-    //TODO: publish new event ticket updated
+    new TicketUpdatedPublisher(natsWrapper.client).publish({
+      id: ticket.id,
+      title: ticket.title,
+      price: ticket.price,
+      version: ticket.version,
+      userId: ticket.userId,
+    });
 
     res.status(200).json(ticket);
   }
