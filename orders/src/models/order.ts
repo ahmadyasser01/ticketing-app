@@ -1,21 +1,20 @@
 import mongoose from "mongoose";
 import { updateIfCurrentPlugin } from "mongoose-update-if-current";
 import { OrderStatus } from "@ahmadyasser01/common";
+import { TicketDoc } from "./ticket";
 
 interface OrderAttrs {
   userId: string;
   status: OrderStatus;
   expiresAt: Date;
-  //FIXME: MAKE THIS TICKET DOC
-  ticket: string;
+  ticket: TicketDoc;
 }
 
 interface OrderDoc extends mongoose.Document {
   userId: string;
   status: OrderStatus;
   expiresAt: Date;
-  //FIXME: MAKE THIS TICKET DOC
-  ticket: string;
+  ticket: TicketDoc;
   version: number;
 }
 
