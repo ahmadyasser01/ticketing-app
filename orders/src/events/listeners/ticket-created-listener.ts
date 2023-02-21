@@ -1,21 +1,21 @@
 import { Message } from "node-nats-streaming";
 import { Subjects, Listener, TicketCreatedEvent } from "@ahmadyasser01/common";
 import { queueGroupName } from "./queue-group-name";
+import { Ticket } from "../../models/ticket";
 
 export class TicketCreatedListener extends Listener<TicketCreatedEvent> {
   subject: Subjects.TicketCreated = Subjects.TicketCreated;
   queueGroupName: string = queueGroupName;
-  onMessage(
-    data: {
-      id: string;
-      version: number;
-      title: string;
-      price: number;
-      userId: string;
-    },
+  async onMessage(
+    data: TicketCreatedEvent["data"],
     msg: Message
-  ): void {
-    throw new Error("Method not implemented.");
-    //TODO: Implement Logic of on Message
+  ): Promise<void> {
+    const { id, title, price } = data;
+
+    const ticket = Ticket.build({ id, title, price });
+
+    await ticket.save();
+
+    msg.ack();
   }
 }
