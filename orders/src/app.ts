@@ -8,6 +8,10 @@ import {
   currentUser,
 } from "@ahmadyasser01/common";
 
+import { deleteOrderRouter } from "./routes/delete";
+import { indexOrderRouter } from "./routes/index";
+import { newOrderRouter } from "./routes/new";
+import { showOrderRouter } from "./routes/show";
 const app = express();
 app.set("trust proxy", true);
 app.use(json());
@@ -20,6 +24,10 @@ app.use(
 app.use(currentUser);
 
 //TODO: ADD ROUTES
+app.use(deleteOrderRouter);
+app.use(indexOrderRouter);
+app.use(newOrderRouter);
+app.use(showOrderRouter);
 
 app.all("*", async (req, res) => {
   throw new NotFoundError();

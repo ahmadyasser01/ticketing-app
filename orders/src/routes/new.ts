@@ -65,3 +65,5 @@ router.post(
     res.status(201).json(order);
   }
 );
+
+export { router as newOrderRouter };

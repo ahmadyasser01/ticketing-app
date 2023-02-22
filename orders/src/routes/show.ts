@@ -11,7 +11,7 @@ import { OrderCancelledPublisher } from "../events/publishers/order-cancelled-pu
 
 const router = Router();
 
-router.delete(
+router.get(
   "/api/orders/:orderId",
   requireAuth,
   async (req: Request, res: Response, next: NextFunction) => {
@@ -19,21 +19,10 @@ router.delete(
     const order = await Order.findById(orderId);
 
     if (!order) throw new NotFoundError();
-
     if (order.userId !== req.currentUser!.id) throw new NotAuthorizedError();
 
-    order.status = OrderStatus.Cancelled;
-
-    await order.save();
-
-    new OrderCancelledPublisher(natsWrapper.client).publish({
-      id: order.id,
-      version: order.version,
-      ticket: {
-        id: order.ticket.id,
-      },
-    });
     res.status(200).json(order);
   }
 );
-export { router as deleteOrderRouter };
+
+export { router as showOrderRouter };
