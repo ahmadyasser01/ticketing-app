@@ -3,6 +3,7 @@ import {
   requireAuth,
   OrderStatus,
   NotAuthorizedError,
+  NotFoundError,
 } from "@ahmadyasser01/common";
 import { Order } from "../models/order";
 import { natsWrapper } from "../nats-wrapper";
@@ -17,7 +18,7 @@ router.delete(
     const { orderId } = req.params;
     const order = await Order.findById(orderId);
 
-    if (!order) throw new Error(`Order NOT found`);
+    if (!order) throw new NotFoundError();
 
     if (order.userId !== req.currentUser!.id) throw new NotAuthorizedError();
 
