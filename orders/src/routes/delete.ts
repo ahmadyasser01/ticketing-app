@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import { Request, Response, Router, NextFunction } from "express";
 import {
   requireAuth,
