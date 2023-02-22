@@ -24,3 +24,5 @@ router.get(
     res.status(200).json(order);
   }
 );
+
+export { router as showOrderRouter };

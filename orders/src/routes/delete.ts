@@ -36,3 +36,4 @@ router.delete(
     res.status(200).json(order);
   }
 );
+export { router as deleteOrderRouter };

@@ -15,3 +15,4 @@ router.get(
     res.status(200).json(orders);
   }
 );
+export { router as indexOrderRouter };
