@@ -16,7 +16,6 @@ export class ExpirationCompleteListener extends Listener<ExpirationCompleteEvent
     data: ExpirationCompleteEvent["data"],
     msg: Message
   ): Promise<void> {
-    //TODO: FIND order by id and populate ticket
     const order = await Order.findById(data.orderId).populate("ticket");
     // if no order throw error
     if (!order) throw new Error("Order not found");
