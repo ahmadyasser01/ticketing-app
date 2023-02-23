@@ -1,9 +1,4 @@
-import {
-  Listener,
-  OrderCreatedEvent,
-  OrderStatus,
-  Subjects,
-} from "@ahmadyasser01/common";
+import { Listener, OrderCreatedEvent, Subjects } from "@ahmadyasser01/common";
 import { Message } from "node-nats-streaming";
 import { Order } from "../../models/order";
 import { queueGroupName } from "./queue-group-name";
@@ -23,5 +18,7 @@ export class OrderCreatedListener extends Listener<OrderCreatedEvent> {
       version: data.version,
     });
     await order.save();
+
+    msg.ack();
   }
 }
