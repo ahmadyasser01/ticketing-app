@@ -7,6 +7,7 @@ import {
   NotFoundError,
   currentUser,
 } from "@ahmadyasser01/common";
+import { createChargeRouter } from "./routes/new";
 
 const app = express();
 app.set("trust proxy", true);
@@ -19,7 +20,7 @@ app.use(
 );
 app.use(currentUser);
 
-//TODO: ADD ROUTES
+app.use(createChargeRouter);
 app.all("*", async (req, res) => {
   throw new NotFoundError();
 });
