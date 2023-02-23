@@ -23,7 +23,6 @@ app.use(
 );
 app.use(currentUser);
 
-//TODO: ADD ROUTES
 app.use(deleteOrderRouter);
 app.use(indexOrderRouter);
 app.use(newOrderRouter);
