@@ -3,7 +3,7 @@ import { OrderStatus } from "@ahmadyasser01/common/build/events/Interfaces/order
 import { Message } from "node-nats-streaming";
 import { queueGroupName } from "./queue-group-name";
 
-export class OrderCreatedListerner extends Listener<OrderCreatedEvent> {
+export class OrderCreatedListener extends Listener<OrderCreatedEvent> {
   subject: Subjects.OrderCreated = Subjects.OrderCreated;
   queueGroupName: string = queueGroupName;
   async onMessage(
