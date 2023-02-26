@@ -66,7 +66,6 @@ ticketSchema.statics.build = (attrs: TicketAttrs) => {
 };
 
 ticketSchema.methods.isReserved = async function () {
-  // TODO:  find an order that has this ticket and  order status is created /  awaiting payment/ completed
   const exisitingOrder = await Order.findOne({
     ticket: this,
     status: {
