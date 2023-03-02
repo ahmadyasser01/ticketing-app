@@ -4,10 +4,10 @@ import request from "supertest";
 import { app } from "../app";
 import jwt from "jsonwebtoken";
 
-//TODO: ADD JEST MOCK TO NATS
 declare global {
   var signin: () => string[];
 }
+jest.mock("../nats-wrapper");
 
 let mongo: any;
 
