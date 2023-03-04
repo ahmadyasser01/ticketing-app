@@ -33,7 +33,7 @@ router.delete(
         id: order.ticket.id,
       },
     });
-    res.status(200).json(order);
+    res.status(204).json(order);
   }
 );
 export { router as deleteOrderRouter };
