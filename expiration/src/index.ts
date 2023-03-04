@@ -11,6 +11,7 @@ const start = async () => {
   if (!process.env.NATS_CLUSTER_ID) {
     throw new Error("NATS_CLUSTER_ID must be defined");
   }
+  //testing workflows+3
 
   try {
     await natsWrapper.connect(
