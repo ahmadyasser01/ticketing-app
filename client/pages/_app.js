@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.css";
 import buildClient from "../api/build-client";
-import Header from "../Components/header";
+import Header from "../components/Header";
 
 const AppComponent = ({ Component, pageProps, currentUser }) => {
   return (
