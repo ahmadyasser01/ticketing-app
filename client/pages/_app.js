@@ -12,6 +12,7 @@ const AppComponent = ({ Component, pageProps, currentUser }) => {
     </div>
   );
 };
+//testing workflows+3
 
 AppComponent.getInitialProps = async (appContext) => {
   const client = buildClient(appContext.ctx);

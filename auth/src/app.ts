@@ -29,8 +29,7 @@ app.all("*", async (req: Request, res: Response) => {
   throw new NotFoundError();
 });
 
-//testing workflows+1
+//testing workflows+3
 app.use(errorHandler);
-//testing workflows+1
 
 export { app };
