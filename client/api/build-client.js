@@ -8,7 +8,7 @@ const buildClient = ({ req }) => {
       baseURL:
         //base url
         // "http://ingress-nginx-controller.ingress-nginx.svc.cluster.local",
-        "http://wwww.ticketingapp123.site",
+        "http://www.ticketingapp123.site",
       headers: req.headers,
     });
   } else {
