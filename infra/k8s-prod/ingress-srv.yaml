@@ -7,7 +7,7 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
   rules:
-    - host: ticketingapp123.site
+    - host: www.ticketingapp123.site
       http:
         paths:
           - path: /api/users/?(.*)
